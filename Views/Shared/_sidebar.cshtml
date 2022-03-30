@@ -1,0 +1,188 @@
+﻿<div class="vertical-menu">
+
+    <div data-simplebar class="h-100">
+
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title" key="t-menu">Menu</li>
+
+                <li>
+                    @Html.ActionLink("Home", "Homepage", "Home", new { @class = "waves-effect" })
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout">
+
+                        </i>
+                        <span key="t-layouts">Appoinments</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>@Html.ActionLink("Doctor Schedule", "Calendar", "Home")</li>
+                        <li> @Html.ActionLink("View Appointment", "ViewAppointment", "Appointment")</li>
+
+                    </ul>
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa fa-stethoscope"></i>
+                        <span key="t-layouts">Doctors </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>@Html.ActionLink("All Doctors", "AllDoctor", "Doctor")</li>
+                        <li>@Html.ActionLink("Doctor Profile", "DoctorProfile", "Doctor")</li>
+
+                    </ul>
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-user-friends"></i>
+                        <span key="t-layouts">Staff </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>@Html.ActionLink("All Staff", "AllStaff", "Staff")</li>
+
+                    </ul>
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa fa-wheelchair"></i>
+                        <span key="t-layouts">Patients </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>@Html.ActionLink("All Patients", "AllPatients", "Patient")</li>
+
+
+                    </ul>
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+
+                        <i class="fa fa-bed"></i>
+                        <span key="t-layouts">Room Allotment</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>@Html.ActionLink("Alloted Rooms", "AllotedRooms", "Room")</li>
+                        <li>@Html.ActionLink("Add Room", "AddRoom", "Room")</li>
+                        <li>@Html.ActionLink("Edit Room", "EditRoom", "Room")</li>
+                    </ul>
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="true">
+                        <i class="bx bx-wallet"></i>
+                        <span key="t-bill">Billing</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse mm-show" aria-expanded="false" style="">
+                        <li>@Html.ActionLink("Bill List", "BillList", "Bill")</li>
+                        <li>@Html.ActionLink("Bill Detail", "BillDetail", "Bill")</li>
+
+
+                    </ul>
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="true">
+                        <i class="fa fa-capsules"></i>
+                        <span key="t-bill">Pharmacy</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse mm-show" aria-expanded="false" style="">
+                        <li>@Html.ActionLink("Medicine List", "MedicineList", "Pharmacy")</li>
+
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span key="t-ecommerce">Roles </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="@Url.Action("GetUserRoleList", null, new { area = string.Empty, controller = "UserRole" }, Request.Url.Scheme)" key="t-products">
+                                <i class="fas fa-user-circle"></i>
+                                User Roles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("AddUserRole", null, new { area = string.Empty, controller = "UserRole" }, Request.Url.Scheme)" key="t-product-detail">
+                                <i class="fas fa-plus"></i>
+                                Add Roles
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-title" key="t-apps">Apps</li>
+
+
+
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                        <i class="bx bxs-user-detail"></i>
+                        <span key="t-contacts">Contacts</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
+                        <li>@Html.ActionLink("User List", "UserList", "User")</li>
+                    </ul>
+                </li>
+
+                <li class="menu-title" key="t-apps">Components</li>
+
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect" aria-expanded="false">
+                        <span class="badge rounded-pill bg-success float-end" key="t-new">New</span>
+                        <i class="bx bx-user-circle"></i>
+                        <span key="t-authentication">Authentication</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse" aria-expanded="false">
+
+                        <li> @Html.ActionLink("Login", "Login", "Home")</li>
+
+                        <li> @Html.ActionLink("Register", "Register", "Home")</li>
+
+                        <li>@Html.ActionLink("Recover Password", "Recover", "Home")</li>
+
+                        <li>@Html.ActionLink("Two step verification", "TwoStepVerification", "Home")</li>
+
+                    </ul>
+
+                </li>
+
+                <li class="mm-active">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="true">
+                        <i class="bx bx-file"></i>
+                        <span key="t-utility">Utility</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse mm-show" aria-expanded="false" style="">
+
+                        <li>@Html.ActionLink("Maintenance", "Maintenance", "Utility")</li>
+                        <li>@Html.ActionLink("FAQs", "Faq", "Utility")</li>
+                        <li>@Html.ActionLink("Error 404", "Error", "Utility")</li>
+                        <li> @Html.ActionLink("Contact US", "Contact", "Home")</li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="calendar.html" class="waves-effect active" aria-expanded="false">
+
+                        <i class="fa fa-sign-out"></i>
+                        <span key="t-calendar">Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+
+

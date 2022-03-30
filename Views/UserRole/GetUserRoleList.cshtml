@@ -1,0 +1,63 @@
+﻿@model IEnumerable<HospitalSystem.ViewModels.UserRoleViewModel>
+@{
+    ViewBag.Title = "GetUserRoleList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetUserRoleList</h2>
+
+<div class="col col-sm-12" style="text-align:center">
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+
+
+                <div class="table-rep-plugin">
+                    <div class="table-responsive mb-0" data-pattern="priority-columns">
+                        <table id="tech-companies-1" class="table table-striped">
+                            <a href="@Url.Action("AddUserRole", null, new { area = string.Empty, controller = "UserRole" }, Request.Url.Scheme)" key="t-product-detail">Create new Role</a>
+
+                            <thead>
+                                <tr>
+                                    <th>Number</th>
+                                    <th data-priority="1">UserName</th>
+                                    <th data-priority="1">RoleName</th>
+
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int RowNo = 0;}
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@{RowNo++;} @RowNo</td>
+
+                                        <td>@Html.DisplayFor(modelItem => item.UserNames)</td>
+                                        <td>@Html.DisplayFor(model => item.RoleNames)</td>
+                                        @*<td>@Html.DisplayFor(model => item.MasterCodeText)</td>*@
+
+                                        <td>@Html.ActionLink("Edit", "updateUserRole", new { id = item.UserRoleID }, new { @class = "btn btn-info" })</td>
+                                        <td>@Html.ActionLink("Details", "Details", new { id = item.UserRoleID }, new { @class = "btn btn-primary" })</td>
+                                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.UserRoleID }, new { @class = "btn btn-danger" })</td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>

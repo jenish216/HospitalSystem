@@ -1,0 +1,127 @@
+﻿@model IEnumerable<HospitalSystem.ViewModels.StaffViewModel>
+@{
+    ViewBag.Title = "AllStaff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AllStaff</h2>
+
+
+<div id="layout-wrapper">
+
+
+
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <!-- Left Sidebar End -->
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+
+                            <h2>@Html.ActionLink("Create New", "Insert")</h2>
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Contacts</a></li>
+                                    <li class="breadcrumb-item active">Staff List</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-nowrap table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                             
+                                                <th scope="col">Name</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr>
+                                            
+                                                <td>
+                                                    <h5 class="font-size-14 mb-1"><a href="javascript: void(0);" class="text-dark">@Html.DisplayFor(modelItem => item.Name)</a></h5>
+
+                                                </td>
+                                                <td>@Html.ActionLink("Edit", "Insert", new { id = item.StaffID })</td>
+                                                <td>@Html.ActionLink("Details", "Details", new { id = item.StaffID })</td>
+                                                <td>@Html.ActionLink("Delete", "Delete", new { id = item.StaffID })</td>
+
+                                            </tr>
+                                            }
+                                            </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <ul class="pagination pagination-rounded justify-content-center mt-4">
+                                            <li class="page-item disabled">
+                                                <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="javascript: void(0);" class="page-link">1</a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a href="javascript: void(0);" class="page-link">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="javascript: void(0);" class="page-link">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="javascript: void(0);" class="page-link">4</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="javascript: void(0);" class="page-link">5</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>document.write(new Date().getFullYear())</script> © Skote.
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
+                            Design & Develop by Themesbrand
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
+
+</div>

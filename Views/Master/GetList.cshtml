@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HospitalSystem.ViewModels.MasterDataViewModel>
+@{
+    ViewBag.Title = "GetList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetList</h2>
+
+<p>
+    @Html.ActionLink("Create", "Insert", "Master")
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterCodeText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplayText)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MasterCodeText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Detail", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>

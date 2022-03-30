@@ -1,0 +1,47 @@
+﻿@model HospitalSystem.ViewModels.MasterDataViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col col-sm-12" style="text-align:center">
+    <h2>MasterData Details</h2>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+
+
+                <div class="col-md-4 grid-margin grid-margin-md-0 stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Code Details</h4>
+                            <div class="list-star">
+                                @*<label>Code Name:</label>
+                                    @Html.DisplayFor(model => model.MasterCodeName)
+                                    <br />*@
+                                <label>Display Text:</label>
+                                @Html.DisplayFor(model => model.DisplayText)
+                                <br />
+                                <label>Master Code Text:</label>
+                                @Html.DisplayFor(model => model.MasterCodeText)
+                                <br />
+
+                            </div>
+                            <p>
+                                @Html.ActionLink("<<Back", "GetList")
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>

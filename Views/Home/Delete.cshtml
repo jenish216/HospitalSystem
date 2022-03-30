@@ -1,0 +1,91 @@
+﻿@model HospitalSystem.ViewModels.FileCaseViewModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="card-title">Delete Patient File Case</h2>
+
+<div class="col-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <form class="forms-sample">
+
+                <input type="hidden" value="@Model.CaseID" name="CaseID" id="CaseID" />
+
+                <dl class="dl-horizontal">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PatientNames)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.PatientNames)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DiseaseName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DiseaseName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Relative_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Relative_Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RelativeName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RelativeName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RoomType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RoomType)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Contact)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Contact)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AlternateNumber)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AlternateNumber)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StatusName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayNameFor(model => model.StatusName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Symptoms)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Symptoms)
+                    </dd>
+                </dl>
+                <button type="button" class="btn btn-primary me-2" onclick="DeleteFileCase()">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "GetFileList")
+</div>

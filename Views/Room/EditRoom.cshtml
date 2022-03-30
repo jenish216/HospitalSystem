@@ -1,0 +1,63 @@
+﻿@model HospitalSystem.ViewModels.RoomViewModel
+@{
+    ViewBag.Title = "EditRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="col-md-12">
+    <div class="card-body">
+        <div class="widget-area-2 proclinic-box-shadow">
+            <h3 class="widget-title">Edit Room Allotment</h3>
+            <form>
+                @Html.HiddenFor(model => model.RoomID)
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="room-type">Room Type</label>
+
+
+                        <select id="RoomType" class="form-select">
+                            <option value="ICU">ICU</option>
+                            <option value="AC Room">AC Room</option>
+                            <option value="Non AC Room">Non AC Room</option>
+                            <option value="Genral Room">Genral Room</option>
+                            <option value="Delux">Delux</option>
+                        </select>
+                    </div><br />
+
+                    <div class="form-group col-md-6">
+                        <label for="charge">Charge</label>
+                        <input type="text" placeholder="charge" class="form-control" id="Charge" value="@Model.Charge">
+                    </div><br />
+                    <div class="form-group col-md-6">
+                        <label for="allot-date">Total Room</label>
+                        <input type="text" placeholder="Total Room" class="form-control" id="TotalRoom" value="@Model.TotalRoom">
+                    </div><br />
+
+                    <div class="form-group col-md-6 mb-3">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="EditRoom()">Allot Room</button>
+                    </div>
+                </div>
+            </form>
+            <!-- Alerts-->
+            @*<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Successfully Done!</strong> Please check in Allotment list
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>*@
+            <!-- /Alerts-->
+        </div>
+    </div>
+</div>

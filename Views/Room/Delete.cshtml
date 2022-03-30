@@ -1,0 +1,38 @@
+﻿@model HospitalSystem.ViewModels.RoomViewModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Room</h2>
+
+<div class="col-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Paients</h4>
+            <form class="forms-sample">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(m => m.RoomID)
+
+                <dl class="dl-horizontal">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RoomType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RoomType)
+                    </dd>
+                </dl>
+                <button type="button" class="btn btn-primary me-2" onclick="DeleteRooms()">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "AllotedRooms")
+</div>

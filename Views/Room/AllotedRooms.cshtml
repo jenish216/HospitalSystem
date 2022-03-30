@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HospitalSystem.ViewModels.RoomViewModel>
+@{
+    ViewBag.Title = "AllotedRooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-sm-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Allotments List</h3>
+
+              
+                    <p>
+                        @Html.ActionLink("Create New", "AddRoom")
+                    </p>
+                    
+                       <div class="row">
+                            <div class="col-sm-10">
+                                <table class="table">
+                                    <thead>
+                                        <tr role="row">
+
+                                            <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1" colspan="1" aria-label="Room Type: activate to sort column ascending" style="width: 160.406px;">Room Type</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1" colspan="1" aria-label="Patient Name: activate to sort column ascending" style="width: 193.359px;">Charge</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1" colspan="1" aria-label="Allotment Date: activate to sort column ascending" style="width: 211px;">TotalRoom</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr role="row" class="odd">
+
+                                                @Html.HiddenFor(model => item.RoomID)
+                                                <td>@Html.DisplayFor(model => item.RoomType)</td>
+                                                <td>@Html.DisplayFor(model => item.Charge)</td>
+                                                <td>@Html.DisplayFor(model => item.TotalRoom)</td>
+                                                <td>@Html.ActionLink("Edit", "EditRoom", new { id = item.RoomID })</td>
+                                                <td>@Html.ActionLink("Details", "Details", new { id = item.RoomID })</td>
+                                                <td>@Html.ActionLink("Delete", "Delete", new { id = item.RoomID })</td>
+                                            </tr>
+
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><div class="row"></div>
+                   
+
+                    <!--Export links-->
+                    <!-- /Export links-->
+                  
+              
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>
+

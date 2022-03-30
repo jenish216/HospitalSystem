@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HospitalManagement.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="CreateBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BillID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="MedcineID" Type="int" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Due" Type="decimal" Mode="In" />
+          <Parameter Name="Deposite" Type="decimal" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="CreateCaseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineID" Type="int" Mode="In" />
+          <Parameter Name="MedID" Type="int" Mode="In" />
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="DoctorID" Type="int" Mode="In" />
+          <Parameter Name="DiseaseID" Type="int" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="CretedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="CreateDoctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DoctorID" Type="int" Mode="In" />
+          <Parameter Name="DoctorName" Type="varchar" Mode="In" />
+          <Parameter Name="DoctorDegree" Type="int" Mode="In" />
+          <Parameter Name="DoctorExpertise" Type="varchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateDoctorDegree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DegreeID" Type="int" Mode="In" />
+          <Parameter Name="DegreeName" Type="varchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateFileCase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CaseID" Type="int" Mode="In" />
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="Contact" Type="varchar" Mode="In" />
+          <Parameter Name="AlternateNumber" Type="varchar" Mode="In" />
+          <Parameter Name="DiseaseID" Type="int" Mode="In" />
+          <Parameter Name="Relative_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Relative_Relation" Type="int" Mode="In" />
+          <Parameter Name="RoomID" Type="int" Mode="In" />
+          <Parameter Name="Symptoms" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateMasterCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodeID" Type="int" Mode="In" />
+          <Parameter Name="CodeText" Type="nvarchar" Mode="In" />
+          <Parameter Name="CodeName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="CreateMasterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="DisplayText" Type="varchar" Mode="In" />
+          <Parameter Name="MasterCodeID" Type="int" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineID" Type="int" Mode="In" />
+          <Parameter Name="MedicineName" Type="varchar" Mode="In" />
+          <Parameter Name="Code" Type="nvarchar" Mode="In" />
+          <Parameter Name="Brand" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="money" Mode="In" />
+          <Parameter Name="Priceperunit" Type="money" Mode="In" />
+          <Parameter Name="UnitStock" Type="int" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="CreatePatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="PatientName" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="datetime" Mode="In" />
+          <Parameter Name="Gender" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Contact" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="RoleName" Type="varchar" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="CreateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoomID" Type="int" Mode="In" />
+          <Parameter Name="RoomType" Type="varchar" Mode="In" />
+          <Parameter Name="Charge" Type="varchar" Mode="In" />
+          <Parameter Name="TotalRoom" Type="varchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StaffID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="DegreeID" Type="int" Mode="In" />
+          <Parameter Name="PositionID" Type="int" Mode="In" />
+          <Parameter Name="ShiftID" Type="int" Mode="In" />
+          <Parameter Name="ExpertiseID" Type="int" Mode="In" />
+          <Parameter Name="TypeID" Type="int" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserRoleID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CreateUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DeleteBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BillID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteCaseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteDoctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DoctorID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteDoctorDegree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DegreeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteFileCase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CaseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteMasterCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteMasterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeletePatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoomID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StaffID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserRoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetMasterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MasterDataID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetMasterDataById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MasterDataId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadCaseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadDoctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DoctorID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadDoctorDegree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DegreeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadFileCase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CaseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadMasterCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadMasterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadPatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoomID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StaffID" Type="int" Mode="In" />
+          <Parameter Name="ISActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ReadUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserRoleId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BillID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="MedcineID" Type="int" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Due" Type="decimal" Mode="In" />
+          <Parameter Name="Deposite" Type="decimal" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdateCaseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineID" Type="int" Mode="In" />
+          <Parameter Name="MedID" Type="int" Mode="In" />
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="DoctorID" Type="int" Mode="In" />
+          <Parameter Name="DiseaseID" Type="int" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdateDoctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DoctorID" Type="int" Mode="In" />
+          <Parameter Name="DoctorName" Type="varchar" Mode="In" />
+          <Parameter Name="DoctorDegree" Type="int" Mode="In" />
+          <Parameter Name="DoctorExpertise" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateDoctorDegree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DegreeID" Type="int" Mode="In" />
+          <Parameter Name="DegreeName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateFileCase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CaseID" Type="int" Mode="In" />
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="Contact" Type="varchar" Mode="In" />
+          <Parameter Name="AlternateNumber" Type="varchar" Mode="In" />
+          <Parameter Name="DiseaseID" Type="int" Mode="In" />
+          <Parameter Name="Relative_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Relative_Relation" Type="int" Mode="In" />
+          <Parameter Name="RoomID" Type="int" Mode="In" />
+          <Parameter Name="Symptoms" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateMasterCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodeID" Type="int" Mode="In" />
+          <Parameter Name="CodeText" Type="nvarchar" Mode="In" />
+          <Parameter Name="CodeName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateMasterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="DisplayText" Type="varchar" Mode="In" />
+          <Parameter Name="MasterCodeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineID" Type="int" Mode="In" />
+          <Parameter Name="MedicineName" Type="varchar" Mode="In" />
+          <Parameter Name="Code" Type="nvarchar" Mode="In" />
+          <Parameter Name="Brand" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="money" Mode="In" />
+          <Parameter Name="Priceperunit" Type="money" Mode="In" />
+          <Parameter Name="UnitStock" Type="int" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdatePatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientID" Type="int" Mode="In" />
+          <Parameter Name="PatientName" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="datetime" Mode="In" />
+          <Parameter Name="Gender" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Contact" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UpdateRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="RoleName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoomID" Type="int" Mode="In" />
+          <Parameter Name="RoomType" Type="varchar" Mode="In" />
+          <Parameter Name="Charge" Type="varchar" Mode="In" />
+          <Parameter Name="TotalRoom" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StaffID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="DegreeID" Type="int" Mode="In" />
+          <Parameter Name="PositionID" Type="int" Mode="In" />
+          <Parameter Name="ShiftID" Type="int" Mode="In" />
+          <Parameter Name="ExpertiseID" Type="int" Mode="In" />
+          <Parameter Name="TypeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserRoleID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ValidateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="HospitalManagementStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalManagement" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HospitalManagementEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="CreateBill" ReturnType="Collection(Int32)">
+            <Parameter Name="BillID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="MedcineID" Mode="In" Type="Int32" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Due" Mode="In" Type="Decimal" />
+            <Parameter Name="Deposite" Mode="In" Type="Decimal" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateCaseMedicine" ReturnType="Collection(Int32)">
+            <Parameter Name="MedicineID" Mode="In" Type="Int32" />
+            <Parameter Name="MedID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="DoctorID" Mode="In" Type="Int32" />
+            <Parameter Name="DiseaseID" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="CretedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateDoctor">
+            <Parameter Name="DoctorID" Mode="In" Type="Int32" />
+            <Parameter Name="DoctorName" Mode="In" Type="String" />
+            <Parameter Name="DoctorDegree" Mode="In" Type="Int32" />
+            <Parameter Name="DoctorExpertise" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateDoctorDegree">
+            <Parameter Name="DegreeID" Mode="In" Type="Int32" />
+            <Parameter Name="DegreeName" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateFileCase">
+            <Parameter Name="CaseID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="AlternateNumber" Mode="In" Type="String" />
+            <Parameter Name="DiseaseID" Mode="In" Type="Int32" />
+            <Parameter Name="Relative_Name" Mode="In" Type="String" />
+            <Parameter Name="Relative_Relation" Mode="In" Type="Int32" />
+            <Parameter Name="RoomID" Mode="In" Type="Int32" />
+            <Parameter Name="Symptoms" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="Int32" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateMasterCode">
+            <Parameter Name="CodeID" Mode="In" Type="Int32" />
+            <Parameter Name="CodeText" Mode="In" Type="String" />
+            <Parameter Name="CodeName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateMasterData" ReturnType="Collection(Decimal)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayText" Mode="In" Type="String" />
+            <Parameter Name="MasterCodeID" Mode="In" Type="Int32" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateMedicine" ReturnType="Collection(Int32)">
+            <Parameter Name="MedicineID" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineName" Mode="In" Type="String" />
+            <Parameter Name="Code" Mode="In" Type="String" />
+            <Parameter Name="Brand" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Priceperunit" Mode="In" Type="Decimal" />
+            <Parameter Name="UnitStock" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreatePatient">
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientName" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateRole" ReturnType="Collection(Int32)">
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+            <Parameter Name="RoleName" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateRoom">
+            <Parameter Name="RoomID" Mode="In" Type="Int32" />
+            <Parameter Name="RoomType" Mode="In" Type="String" />
+            <Parameter Name="Charge" Mode="In" Type="String" />
+            <Parameter Name="TotalRoom" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateStaff">
+            <Parameter Name="StaffID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="DegreeID" Mode="In" Type="Int32" />
+            <Parameter Name="PositionID" Mode="In" Type="Int32" />
+            <Parameter Name="ShiftID" Mode="In" Type="Int32" />
+            <Parameter Name="ExpertiseID" Mode="In" Type="Int32" />
+            <Parameter Name="TypeID" Mode="In" Type="Int32" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateUserRole" ReturnType="Collection(Decimal)">
+            <Parameter Name="UserRoleID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CreateUsers" ReturnType="Collection(Decimal)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteBill">
+            <Parameter Name="BillID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteCaseMedicine">
+            <Parameter Name="MedicineID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDoctor">
+            <Parameter Name="DoctorID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDoctorDegree">
+            <Parameter Name="DegreeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteFileCase">
+            <Parameter Name="CaseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteMasterCode">
+            <Parameter Name="CodeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteMasterData">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteMedicine">
+            <Parameter Name="MedicineID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePatient">
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRole">
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRoom">
+            <Parameter Name="RoomID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteStaff">
+            <Parameter Name="StaffID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteUserRole">
+            <Parameter Name="UserRoleID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteUsers">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetMasterData" ReturnType="Collection(HospitalManagement.GetMasterData_Result)">
+            <Parameter Name="MasterDataID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetMasterDataById" ReturnType="Collection(HospitalManagement.GetMasterDataById_Result)">
+            <Parameter Name="MasterDataId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadBill" ReturnType="Collection(HospitalManagement.ReadBill_Result)" />
+          <FunctionImport Name="ReadCaseMedicine" ReturnType="Collection(HospitalManagement.ReadCaseMedicine_Result)" />
+          <FunctionImport Name="ReadDoctor" ReturnType="Collection(HospitalManagement.ReadDoctor_Result)">
+            <Parameter Name="DoctorID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadDoctorDegree" ReturnType="Collection(HospitalManagement.ReadDoctorDegree_Result)">
+            <Parameter Name="DegreeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadFileCase" ReturnType="Collection(HospitalManagement.ReadFileCase_Result)">
+            <Parameter Name="CaseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadMasterCode" ReturnType="Collection(HospitalManagement.ReadMasterCode_Result)" />
+          <FunctionImport Name="ReadMasterData" ReturnType="Collection(HospitalManagement.ReadMasterData_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadMedicine" ReturnType="Collection(HospitalManagement.ReadMedicine_Result)" />
+          <FunctionImport Name="ReadPatient" ReturnType="Collection(HospitalManagement.ReadPatient_Result)">
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadRole" ReturnType="Collection(HospitalManagement.ReadRole_Result)">
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadRoom" ReturnType="Collection(HospitalManagement.ReadRoom_Result)">
+            <Parameter Name="RoomID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadStaff" ReturnType="Collection(HospitalManagement.ReadStaff_Result)">
+            <Parameter Name="StaffID" Mode="In" Type="Int32" />
+            <Parameter Name="ISActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ReadUserRole" ReturnType="Collection(HospitalManagement.ReadUserRole_Result)">
+            <Parameter Name="UserRoleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadUsers" ReturnType="Collection(HospitalManagement.ReadUsers_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateBill">
+            <Parameter Name="BillID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="MedcineID" Mode="In" Type="Int32" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Due" Mode="In" Type="Decimal" />
+            <Parameter Name="Deposite" Mode="In" Type="Decimal" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCaseMedicine">
+            <Parameter Name="MedicineID" Mode="In" Type="Int32" />
+            <Parameter Name="MedID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="DoctorID" Mode="In" Type="Int32" />
+            <Parameter Name="DiseaseID" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDoctor">
+            <Parameter Name="DoctorID" Mode="In" Type="Int32" />
+            <Parameter Name="DoctorName" Mode="In" Type="String" />
+            <Parameter Name="DoctorDegree" Mode="In" Type="Int32" />
+            <Parameter Name="DoctorExpertise" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDoctorDegree">
+            <Parameter Name="DegreeID" Mode="In" Type="Int32" />
+            <Parameter Name="DegreeName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateFileCase">
+            <Parameter Name="CaseID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="AlternateNumber" Mode="In" Type="String" />
+            <Parameter Name="DiseaseID" Mode="In" Type="Int32" />
+            <Parameter Name="Relative_Name" Mode="In" Type="String" />
+            <Parameter Name="Relative_Relation" Mode="In" Type="Int32" />
+            <Parameter Name="RoomID" Mode="In" Type="Int32" />
+            <Parameter Name="Symptoms" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateMasterCode">
+            <Parameter Name="CodeID" Mode="In" Type="Int32" />
+            <Parameter Name="CodeText" Mode="In" Type="String" />
+            <Parameter Name="CodeName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateMasterData">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayText" Mode="In" Type="String" />
+            <Parameter Name="MasterCodeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateMedicine">
+            <Parameter Name="MedicineID" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineName" Mode="In" Type="String" />
+            <Parameter Name="Code" Mode="In" Type="String" />
+            <Parameter Name="Brand" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Priceperunit" Mode="In" Type="Decimal" />
+            <Parameter Name="UnitStock" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePatient">
+            <Parameter Name="PatientID" Mode="In" Type="Int32" />
+            <Parameter Name="PatientName" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRole">
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+            <Parameter Name="RoleName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRoom">
+            <Parameter Name="RoomID" Mode="In" Type="Int32" />
+            <Parameter Name="RoomType" Mode="In" Type="String" />
+            <Parameter Name="Charge" Mode="In" Type="String" />
+            <Parameter Name="TotalRoom" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateStaff">
+            <Parameter Name="StaffID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="DegreeID" Mode="In" Type="Int32" />
+            <Parameter Name="PositionID" Mode="In" Type="Int32" />
+            <Parameter Name="ShiftID" Mode="In" Type="Int32" />
+            <Parameter Name="ExpertiseID" Mode="In" Type="Int32" />
+            <Parameter Name="TypeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateUserRole">
+            <Parameter Name="UserRoleID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateUsers">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ValidateUser" ReturnType="Collection(String)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetMasterData_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="MasterCodeName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="MasterCodeText" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="GetMasterDataById_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="DisplayText" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="MasterCodeId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadBill_Result">
+          <Property Type="Int32" Name="BillID" Nullable="false" />
+          <Property Type="Int32" Name="UserID" Nullable="true" />
+          <Property Type="Int32" Name="PatientID" Nullable="true" />
+          <Property Type="Int32" Name="MedicineID" Nullable="true" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Deposite" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadCaseMedicine_Result">
+          <Property Type="Int32" Name="MedicineID" Nullable="false" />
+          <Property Type="Int32" Name="MedID" Nullable="true" />
+          <Property Type="Int32" Name="PatientID" Nullable="false" />
+          <Property Type="Int32" Name="DoctorID" Nullable="true" />
+          <Property Type="Int32" Name="DiseaseID" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadDoctor_Result">
+          <Property Type="Int32" Name="DoctorID" Nullable="true" />
+          <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="DoctorDegree" Nullable="true" />
+          <Property Type="String" Name="DegreeNames" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="DoctorExpertise" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadDoctorDegree_Result">
+          <Property Type="Int32" Name="DegreeID" Nullable="false" />
+          <Property Type="String" Name="DegreeName" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadFileCase_Result">
+          <Property Type="Int32" Name="CaseID" Nullable="false" />
+          <Property Type="Int32" Name="PatientID" Nullable="true" />
+          <Property Type="String" Name="PatientNames" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Contact" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="AlternateNumber" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="DiseaseID" Nullable="true" />
+          <Property Type="String" Name="DiseaseName" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Relative_Relation" Nullable="true" />
+          <Property Type="String" Name="RelativeName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Relative_Name" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="RoomID" Nullable="true" />
+          <Property Type="String" Name="RoomType" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Symptoms" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="Status" Nullable="true" />
+          <Property Type="String" Name="StatusName" Nullable="true" MaxLength="30" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadMasterCode_Result">
+          <Property Type="Int32" Name="CodeID" Nullable="false" />
+          <Property Type="String" Name="CodeText" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CodeName" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="ReadMasterData_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="DisplayText" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="MasterCodeId" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="String" Name="MasterCodeText" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="ReadMedicine_Result">
+          <Property Type="Int32" Name="MedicineID" Nullable="false" />
+          <Property Type="String" Name="MedicineName" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Priceperunit" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="UnitStock" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadPatient_Result">
+          <Property Type="Int32" Name="PatientID" Nullable="false" />
+          <Property Type="String" Name="PatientName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
+          <Property Type="String" Name="Contact" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadRole_Result">
+          <Property Type="Int32" Name="RoleID" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ReadRoom_Result">
+          <Property Type="Int32" Name="RoomID" Nullable="false" />
+          <Property Type="String" Name="RoomType" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Charge" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="String" Name="TotalRoom" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="ReadStaff_Result">
+          <Property Type="Int32" Name="StaffID" Nullable="false" />
+          <Property Type="Int32" Name="UserID" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="DegreeID" Nullable="true" />
+          <Property Type="Int32" Name="PositionID" Nullable="true" />
+          <Property Type="Int32" Name="ShiftID" Nullable="true" />
+          <Property Type="Int32" Name="ExpertiseID" Nullable="true" />
+          <Property Type="Int32" Name="TypeID" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadUserRole_Result">
+          <Property Type="Int32" Name="UserRoleID" Nullable="false" />
+          <Property Type="Int32" Name="UserID" Nullable="true" />
+          <Property Type="String" Name="UserNames" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="RoleID" Nullable="true" />
+          <Property Type="String" Name="RoleNames" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ReadUsers_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalManagementStoreContainer" CdmEntityContainer="HospitalManagementEntities" >
+          <FunctionImportMapping FunctionImportName="CreateBill" FunctionName="HospitalManagement.Store.CreateBill" />
+          <FunctionImportMapping FunctionImportName="CreateCaseMedicine" FunctionName="HospitalManagement.Store.CreateCaseMedicine" />
+          <FunctionImportMapping FunctionImportName="CreateDoctor" FunctionName="HospitalManagement.Store.CreateDoctor" />
+          <FunctionImportMapping FunctionImportName="CreateDoctorDegree" FunctionName="HospitalManagement.Store.CreateDoctorDegree" />
+          <FunctionImportMapping FunctionImportName="CreateFileCase" FunctionName="HospitalManagement.Store.CreateFileCase" />
+          <FunctionImportMapping FunctionImportName="CreateMasterCode" FunctionName="HospitalManagement.Store.CreateMasterCode" />
+          <FunctionImportMapping FunctionImportName="CreateMasterData" FunctionName="HospitalManagement.Store.CreateMasterData" />
+          <FunctionImportMapping FunctionImportName="CreateMedicine" FunctionName="HospitalManagement.Store.CreateMedicine" />
+          <FunctionImportMapping FunctionImportName="CreatePatient" FunctionName="HospitalManagement.Store.CreatePatient" />
+          <FunctionImportMapping FunctionImportName="CreateRole" FunctionName="HospitalManagement.Store.CreateRole" />
+          <FunctionImportMapping FunctionImportName="CreateRoom" FunctionName="HospitalManagement.Store.CreateRoom" />
+          <FunctionImportMapping FunctionImportName="CreateStaff" FunctionName="HospitalManagement.Store.CreateStaff" />
+          <FunctionImportMapping FunctionImportName="CreateUserRole" FunctionName="HospitalManagement.Store.CreateUserRole" />
+          <FunctionImportMapping FunctionImportName="CreateUsers" FunctionName="HospitalManagement.Store.CreateUsers" />
+          <FunctionImportMapping FunctionImportName="DeleteBill" FunctionName="HospitalManagement.Store.DeleteBill" />
+          <FunctionImportMapping FunctionImportName="DeleteCaseMedicine" FunctionName="HospitalManagement.Store.DeleteCaseMedicine" />
+          <FunctionImportMapping FunctionImportName="DeleteDoctor" FunctionName="HospitalManagement.Store.DeleteDoctor" />
+          <FunctionImportMapping FunctionImportName="DeleteDoctorDegree" FunctionName="HospitalManagement.Store.DeleteDoctorDegree" />
+          <FunctionImportMapping FunctionImportName="DeleteFileCase" FunctionName="HospitalManagement.Store.DeleteFileCase" />
+          <FunctionImportMapping FunctionImportName="DeleteMasterCode" FunctionName="HospitalManagement.Store.DeleteMasterCode" />
+          <FunctionImportMapping FunctionImportName="DeleteMasterData" FunctionName="HospitalManagement.Store.DeleteMasterData" />
+          <FunctionImportMapping FunctionImportName="DeleteMedicine" FunctionName="HospitalManagement.Store.DeleteMedicine" />
+          <FunctionImportMapping FunctionImportName="DeletePatient" FunctionName="HospitalManagement.Store.DeletePatient" />
+          <FunctionImportMapping FunctionImportName="DeleteRole" FunctionName="HospitalManagement.Store.DeleteRole" />
+          <FunctionImportMapping FunctionImportName="DeleteRoom" FunctionName="HospitalManagement.Store.DeleteRoom" />
+          <FunctionImportMapping FunctionImportName="DeleteStaff" FunctionName="HospitalManagement.Store.DeleteStaff" />
+          <FunctionImportMapping FunctionImportName="DeleteUserRole" FunctionName="HospitalManagement.Store.DeleteUserRole" />
+          <FunctionImportMapping FunctionImportName="DeleteUsers" FunctionName="HospitalManagement.Store.DeleteUsers" />
+          <FunctionImportMapping FunctionImportName="GetMasterData" FunctionName="HospitalManagement.Store.GetMasterData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.GetMasterData_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MasterCodeName" ColumnName="MasterCodeName" />
+                <ScalarProperty Name="MasterCodeText" ColumnName="MasterCodeText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMasterDataById" FunctionName="HospitalManagement.Store.GetMasterDataById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.GetMasterDataById_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+                <ScalarProperty Name="MasterCodeId" ColumnName="MasterCodeId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadBill" FunctionName="HospitalManagement.Store.ReadBill">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadBill_Result">
+                <ScalarProperty Name="BillID" ColumnName="BillID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="MedicineID" ColumnName="MedicineID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="Deposite" ColumnName="Deposite" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadCaseMedicine" FunctionName="HospitalManagement.Store.ReadCaseMedicine">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadCaseMedicine_Result">
+                <ScalarProperty Name="MedicineID" ColumnName="MedicineID" />
+                <ScalarProperty Name="MedID" ColumnName="MedID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadDoctor" FunctionName="HospitalManagement.Store.ReadDoctor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadDoctor_Result">
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="DoctorDegree" ColumnName="DoctorDegree" />
+                <ScalarProperty Name="DegreeNames" ColumnName="DegreeNames" />
+                <ScalarProperty Name="DoctorExpertise" ColumnName="DoctorExpertise" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadDoctorDegree" FunctionName="HospitalManagement.Store.ReadDoctorDegree">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadDoctorDegree_Result">
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadFileCase" FunctionName="HospitalManagement.Store.ReadFileCase">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadFileCase_Result">
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="PatientNames" ColumnName="PatientNames" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
+                <ScalarProperty Name="Relative_Relation" ColumnName="Relative_Relation" />
+                <ScalarProperty Name="RelativeName" ColumnName="RelativeName" />
+                <ScalarProperty Name="Relative_Name" ColumnName="Relative_Name" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="Symptoms" ColumnName="Symptoms" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadMasterCode" FunctionName="HospitalManagement.Store.ReadMasterCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadMasterCode_Result">
+                <ScalarProperty Name="CodeID" ColumnName="CodeID" />
+                <ScalarProperty Name="CodeText" ColumnName="CodeText" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadMasterData" FunctionName="HospitalManagement.Store.ReadMasterData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadMasterData_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+                <ScalarProperty Name="MasterCodeId" ColumnName="MasterCodeId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MasterCodeText" ColumnName="MasterCodeText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadMedicine" FunctionName="HospitalManagement.Store.ReadMedicine">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadMedicine_Result">
+                <ScalarProperty Name="MedicineID" ColumnName="MedicineID" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Priceperunit" ColumnName="Priceperunit" />
+                <ScalarProperty Name="UnitStock" ColumnName="UnitStock" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadPatient" FunctionName="HospitalManagement.Store.ReadPatient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadPatient_Result">
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadRole" FunctionName="HospitalManagement.Store.ReadRole">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadRole_Result">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadRoom" FunctionName="HospitalManagement.Store.ReadRoom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadRoom_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TotalRoom" ColumnName="TotalRoom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadStaff" FunctionName="HospitalManagement.Store.ReadStaff">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadStaff_Result">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="ExpertiseID" ColumnName="ExpertiseID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadUserRole" FunctionName="HospitalManagement.Store.ReadUserRole">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadUserRole_Result">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserNames" ColumnName="UserNames" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleNames" ColumnName="RoleNames" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadUsers" FunctionName="HospitalManagement.Store.ReadUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalManagement.ReadUsers_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateBill" FunctionName="HospitalManagement.Store.UpdateBill" />
+          <FunctionImportMapping FunctionImportName="UpdateCaseMedicine" FunctionName="HospitalManagement.Store.UpdateCaseMedicine" />
+          <FunctionImportMapping FunctionImportName="UpdateDoctor" FunctionName="HospitalManagement.Store.UpdateDoctor" />
+          <FunctionImportMapping FunctionImportName="UpdateDoctorDegree" FunctionName="HospitalManagement.Store.UpdateDoctorDegree" />
+          <FunctionImportMapping FunctionImportName="UpdateFileCase" FunctionName="HospitalManagement.Store.UpdateFileCase" />
+          <FunctionImportMapping FunctionImportName="UpdateMasterCode" FunctionName="HospitalManagement.Store.UpdateMasterCode" />
+          <FunctionImportMapping FunctionImportName="UpdateMasterData" FunctionName="HospitalManagement.Store.UpdateMasterData" />
+          <FunctionImportMapping FunctionImportName="UpdateMedicine" FunctionName="HospitalManagement.Store.UpdateMedicine" />
+          <FunctionImportMapping FunctionImportName="UpdatePatient" FunctionName="HospitalManagement.Store.UpdatePatient" />
+          <FunctionImportMapping FunctionImportName="UpdateRole" FunctionName="HospitalManagement.Store.UpdateRole" />
+          <FunctionImportMapping FunctionImportName="UpdateRoom" FunctionName="HospitalManagement.Store.UpdateRoom" />
+          <FunctionImportMapping FunctionImportName="UpdateStaff" FunctionName="HospitalManagement.Store.UpdateStaff" />
+          <FunctionImportMapping FunctionImportName="UpdateUserRole" FunctionName="HospitalManagement.Store.UpdateUserRole" />
+          <FunctionImportMapping FunctionImportName="UpdateUsers" FunctionName="HospitalManagement.Store.UpdateUsers" />
+          <FunctionImportMapping FunctionImportName="ValidateUser" FunctionName="HospitalManagement.Store.ValidateUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

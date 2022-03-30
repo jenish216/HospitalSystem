@@ -1,0 +1,55 @@
+﻿@model HospitalSystem.ViewModels.UserRoleViewModel
+@{
+    ViewBag.Title = "UpdateUserRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateUserRole</h2>
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body  flex-column justify-content-center">
+            <h2 class="card-title" align="center">Edit UserRoles</h2>
+            <div>
+                <form>
+                    <div class="row">
+                        <div>
+                            <div class="mb-3">
+                                <input type="hidden" value="@Model.UserRoleID" name="ID" id="UserRoleID" />
+                                <label>User Name:</label>
+                                <select id="UserName" class="js-example-basic-single w-100 form-select">
+                                    @foreach (var item in Model.Users)
+                                    {
+                                        <option value="@item.UserID">@item.UserName</option>
+                                    }
+                                </select>
+
+                                <label>Role Name:</label>
+                                <select id="RoleName" class="js-example-basic-single w-100 form-select">
+                                    @foreach (var item in Model.Roles)
+                                    {
+                                        <option value="@item.RoleID">@item.RoleName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+
+            <div class="row mt-3 justify-content-end">
+                <div class="col-sm-8">
+                    <button type="button" class="btn btn-primary w-md" onclick="UpdateUserRoleData()">Submit</button>
+                    <button class="btn btn-light w-md">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+

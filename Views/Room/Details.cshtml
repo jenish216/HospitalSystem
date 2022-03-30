@@ -1,0 +1,43 @@
+﻿@model HospitalSystem.ViewModels.RoomViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="col-md-4 grid-margin grid-margin-md-0 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Room Details</h4>
+            <div class="list-star">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model=> model.RoomType)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RoomType)
+                    </dd>
+                     
+                       <dt>
+                           @Html.DisplayNameFor(model=> model.TotalRoom)
+                       </dt>
+                       <dd>
+                           @Html.DisplayFor(model => model.TotalRoom)
+                       </dd>
+                    
+                      <dt>
+                          @Html.DisplayNameFor(model=> model.Charge)
+                      </dt>
+                      <dd>
+                          @Html.DisplayFor(model => model.Charge)
+                      </dd>
+                       
+                    </dl>
+</div>
+            <p>
+                @Html.ActionLink("<<Back", "AllotedRooms")
+            </p>
+        </div>
+    </div>
+</div>

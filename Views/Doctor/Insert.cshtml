@@ -1,0 +1,55 @@
+﻿@model HospitalSystem.ViewModels.DoctorViewModel
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert</h2>
+
+<html>
+<head>
+</head>
+<body>
+    <div class="col-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">New Doctors</h4>
+                <br />
+                <form>
+                   
+                    @Html.HiddenFor(model=> model.DoctorID)
+
+                    <div class="form-group">
+
+                        <label>Degree Name</label>
+                        <select id="DegreeName" class="form-select">
+                            @foreach (var item in Model.DoctorDegrees)
+                            {
+                                <option value="@item.DegreeID">@item.DegreeName</option>
+                            }
+                        </select>
+                    </div><br />
+
+                    <div>
+
+                        <label for="exampleInputUserName" id="lblName">Doctor Name</label>
+                        <input type="text" class="form-control" id="DoctorName" value="@Model.DoctorName">
+                    </div><br />
+                    <div class="form-group">
+                        <label for="exampleInputUserName" id="lblName">Doctor Expertise</label>
+                        <input type="text" class="form-control" id="DoctorExpertise" value="@Model.DoctorExpertise">
+                    </div><br />
+
+                    
+
+
+
+                    <button type="button" class="btn btn-primary me-2" onclick="insertDoctor()">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

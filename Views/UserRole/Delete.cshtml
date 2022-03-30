@@ -1,0 +1,32 @@
+﻿@model HospitalSystem.ViewModels.UserRoleViewModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<div class="col-md-4 grid-margin grid-margin-md-0 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Delete MasterData</h4>
+            <div class="list-star">
+                <input type="hidden" value="@Model.UserRoleID" name="UserRoleID" id="UserRoleID" />
+                <label>Role Name:</label>
+                @Html.DisplayFor(model => model.RoleNames)
+                <br />
+                <label>UserName:</label>
+                @Html.DisplayFor(model => model.UserNames)
+                <br />
+
+            </div>
+            <p>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary" onclick="delUserRoleData()">Delete</button>
+                </div>
+                @Html.ActionLink("<<Back", "GetUserRoleList")
+
+            </p>
+        </div>
+    </div>
+</div>

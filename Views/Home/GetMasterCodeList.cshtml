@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HospitalSystem.ViewModels.MasterCodeViewModel>
+@{
+    ViewBag.Title = "GetMasterCodeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetMasterCodeList</h2>
+
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeText)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CodeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CodeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CodeID })
+            </td>
+        </tr>
+    }
+</table>

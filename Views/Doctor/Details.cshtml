@@ -1,0 +1,46 @@
+﻿@model HospitalSystem.ViewModels.DoctorViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="card-title">Doctor Details</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorExpertise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorExpertise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorDegree)
+        </dd>
+
+     
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Insert", new { id = Model.DoctorID }) |
+    @Html.ActionLink("Back to List", "AllDoctor")
+</p>
+

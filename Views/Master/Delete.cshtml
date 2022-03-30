@@ -1,0 +1,43 @@
+﻿@model HospitalSystem.ViewModels.MasterDataViewModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MasterData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+     @Html.HiddenFor(model=> model.ID)
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayText)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.masterCodes.)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.masterCodes.CodeText)
+            </dd>*@
+
+    </dl>
+
+    <div>
+        <button type="button" class="btn btn-primary me-2" onclick="DeleteMasterData()">Submit</button>
+    </div>
+
+
+    @*<div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+
+</div>

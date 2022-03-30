@@ -1,0 +1,43 @@
+﻿@model HospitalSystem.ViewModels.MasterDataViewModel
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert</h2>
+
+<div class="container-fluid">
+    <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        @Html.HiddenFor(model => model.ID)
+                        <label>Code Text:</label>
+                        <select id="MasterCodeName" class="js-example-basic-single w-100">
+                            @foreach (var item in Model.masterCodes)
+                            {
+                                <option value="@item.CodeID">@item.CodeName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleInputFirstName" id="lblFirstName">Display Text:</label>
+                        <input type="text" class="form-control" id="DisplayText" value="@Model.DisplayText" />
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div>
+                <button type="button" class="btn btn-primary me-2" onclick="insertMasterData()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

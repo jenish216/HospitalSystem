@@ -1,0 +1,103 @@
+﻿@model HospitalSystem.ViewModels.FileCaseViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="col-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Edit File</h4>
+            <br />
+            <form>
+                @Html.HiddenFor(model => model.CaseID)
+
+
+                <div class="form-group">
+
+                    <label>Patient Name</label>
+                    <select id="patientID" class="form-select">
+                        @foreach (var item in Model.patientnames)
+                        {
+                            <option value="@item.PatientID">@item.PatientName</option>
+                        }
+                    </select>
+                </div><br />
+
+                <div class="form-group">
+
+                    <label>Room Type</label>
+                    <select id="RoomID" class="form-select">
+                        @foreach (var item in Model.Roomtypes)
+                        {
+                            <option value="@item.RoomID">@item.RoomType</option>
+                        }
+                    </select>
+                </div><br />
+                <div class="form-group">
+
+                    <label>Disease Name</label>
+                    <select id="DiseaseID" class="form-select">
+                        @foreach (var item in Model.Diseasetype)
+                        {
+                            <option value="@item.ID">@item.MasterCodeName</option>
+                        }
+                    </select>
+                </div><br />
+
+                <div class="form-group">
+                    <label>Status </label>
+
+                    <select id="Status" class="form-select">
+
+                        @foreach (var i in Model.StatusNames)
+                        {
+                            <option value="@i.ID">@i.MasterCodeName</option>
+                        }
+
+                    </select>
+                </div><br />
+
+                <div class="form-group">
+                    <label>Relative Relation </label>
+
+                    <select id="relativerelation" class="form-select">
+
+                        @foreach (var i in Model.relative_names)
+                        {
+                            <option value="@i.ID">@i.MasterCodeName</option>
+                        }
+
+                    </select>
+                </div><br />
+                <div>
+
+                    <label for="exampleInputUserName" id="lblName">Relative Name</label>
+                    <input type="text" class="form-control" id="Relativename" value="@Model.RelativeName">
+                </div><br />
+                <div class="form-group">
+                    <label for="exampleInputUserName" id="lblName">Contact</label>
+                    <input type="text" class="form-control" id="Contact" value="@Model.Contact">
+                </div><br />
+
+                <div class="form-group">
+                    <label for="exampleInputUserName" id="lblName">AlternateNumber</label>
+                    <input type="text" class="form-control" id="AlternateNumber" value="@Model.AlternateNumber">
+                </div><br />
+
+                <div class="form-group">
+                    <label for="exampleInputUserName" id="lblName">Symptoms</label>
+                    <input type="text" class="form-control" id="Symptoms" value="@Model.Symptoms">
+                </div><br />
+
+
+
+                <button type="button" class="btn btn-primary me-2" onclick="updateFileCase()">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+
+            </form>
+        </div>
+    </div>
+</div>

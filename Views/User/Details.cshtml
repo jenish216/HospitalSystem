@@ -1,0 +1,31 @@
+﻿@model HospitalSystem.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<dl class="dl-horizontal">
+
+
+    <dd>
+        @Html.DisplayFor(model => model.UserName)
+    </dd>
+
+
+
+    <dd>
+        @Html.DisplayFor(model => model.Password)
+    </dd>
+
+
+    <dd>
+        @Html.DisplayFor(model => model.EmailAddress)
+    </dd>
+
+</dl>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "UserList")
+</p>

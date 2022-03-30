@@ -1,0 +1,58 @@
+﻿@model HospitalSystem.ViewModels.PatientViewModel
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="card-title">New Patient</h2>
+
+
+<div class="col-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <form class="forms-sample">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.PatientID)
+                <div class="form-group">
+                    <label for="exampleInputPatientName" id="lblPatientName">Patient Name:</label>
+                    <input type="text" class="form-control" id="PatientName" value="@Model.PatientName" required />
+                </div><br />
+                <div class="form-group">
+                    <label for="exampleInputDOB" id="lblDOB">DOB:</label>
+                    <input type="date" class="form-control" id="DOB" value="@Model.DOB" required />
+                </div><br />
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <input type="radio" name="Gender" value="Male">Male
+                    <input type="radio" name="Gender" value="Female">Female
+                </div><br />
+                <div class="form-group">
+                    <label for="exampleInputEmail" id="lblEmail">Email:</label>
+                    <input type="text" class="form-control" id="Email" value="@Model.Email" required />
+                </div><br />
+                <div class="form-group">
+                    <label for="exampleInputContact" id="lblContact">Contact:</label>
+                    <input type="text" class="form-control" id="Contact" value="@Model.Contact" required />
+                </div><br />
+                <div class="form-group">
+                    <label for="exampleInputAge" id="lblAddAge">Age:</label>
+                    <input type="text" class="form-control" id="Age" value="@Model.Age" required />
+                </div><br />
+                <div class="form-group">
+                    <label for="exampleInputAddress" id="lblAddress">Address:</label>
+                    <input type="text" class="form-control" id="Address" value="@Model.Address" required />
+                </div><br />
+                <button type="button" class="btn btn-primary me-2" onclick="insertPatient()">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "AllPatients")
+</div>
+
